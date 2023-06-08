@@ -1,4 +1,5 @@
 <?php
+// Контроллер на данный момент не используется
 $usersRepo = new mySqlRepo();
 $usersRepo->setDB($db);
 $usersRepo->setTable('users');

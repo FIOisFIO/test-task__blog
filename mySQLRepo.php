@@ -85,34 +85,5 @@ class mySqlRepo {
         return $response;
     }
 }
-// CREATE TABLE `test_blogs`.`users` (
-//    `id` INT NOT NULL AUTO_INCREMENT,
-//    `login` VARCHAR(45) NOT NULL,
-//    `name` VARCHAR(100) NOT NULL,
-//    `password` VARCHAR(45) NOT NULL,
-//    PRIMARY KEY (`id`),
-//    UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-//    UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE);
-
-// INSERT INTO `bruh-app`.`users-tmp` (login, name, password) VALUES ('asd', 'ASd asd', '1234');
-
-    
-// CREATE TABLE `test_blogs`.`posts` (
-//     `id` INT NOT NULL AUTO_INCREMENT,
-//     `title` VARCHAR(100) NOT NULL,
-//     `text` TEXT(1000) NOT NULL,
-//     `userId` VARCHAR(45) NULL,
-//     `userName` VARCHAR(45) NOT NULL,
-//     `likesCount` INT NULL DEFAULT 0,
-//     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-//     PRIMARY KEY (`id`)); 
-
-
-// CREATE TABLE `test_blogs`.`comments` (
-//     `id` INT NOT NULL AUTO_INCREMENT,
-//     `text` TEXT(1000) NOT NULL,
-//     `userId` VARCHAR(45) NOT NULL,
-//     `userName` VARCHAR(45) NOT NULL,
-//     PRIMARY KEY (`id`));
    
 ?>

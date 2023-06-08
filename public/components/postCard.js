@@ -45,7 +45,7 @@ export function createPostCard(userName, date, content, likesCount, currentUser,
         if(commentArea.value) {
             fetch(`index.php/comments?postId=${id}&text=${commentArea.value}&userId=${curUser.id}&userName=${curUser.name}`, {method: 'POST'}).then(res => res.json())
             .then((comment) => {
-                if(card.querySelector('.comments-wrapper-disabled')) {
+                if(commentsWrap.classList.contains('comments-wrapper-disabled')) {
                     onCommentsButtonClick()
                 } else{
                     addComment(comment)

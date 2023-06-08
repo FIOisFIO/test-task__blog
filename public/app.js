@@ -17,7 +17,6 @@ contentWrapper.addEventListener('scroll', scrollControll)
         fetch(`index.php/posts?limit=${pageSize}&offset=${offset}`).then(res => res.json())
         .then((data) => {
         if(data?.length) {
-            console.log(data);
             data.forEach(post => {
                 appendPost(post)
             });
@@ -46,7 +45,7 @@ contentWrapper.addEventListener('scroll', scrollControll)
     function scrollControll(e) {
         const screenHeight = window.innerHeight
         if ((e.target.scrollHeight - e.target.scrollTop - screenHeight) <= 300) {
-            offset += (pageSize + 1)
+            offset += pageSize 
             initPosts()
             }
     }
