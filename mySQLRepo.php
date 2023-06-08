@@ -11,11 +11,11 @@ class mySqlRepo {
 
     function createRow($model) {
         function addQuotes($str) {
-            return '"'.$str.'"';
+            return "'".$str."'";
         }
+
         $fields = implode(', ', array_keys((array)$model));
         $values = implode(', ', array_map('addQuotes', array_values((array)$model)));
-
 
         $this->db->conn->query('INSERT INTO '.$this->table.'('.$fields.') VALUES ('.$values.');');
 
@@ -43,14 +43,9 @@ class mySqlRepo {
 
     function updateById($model) {
 
-        function addValue($field) {
-            global $model;
-            return ''.$field.'="'.$model->$field.'"';
-        }
         $pairs =[];
-        $fields = implode(', ', array_keys((array)$model));
         foreach (array_keys((array)$model) as $field) {
-            array_push($pairs, ''.$field.'="'.$model->$field.'"');
+            array_push($pairs, "".$field."='".$model->$field."'");
         }
         
         $pairs = implode(', ', $pairs);

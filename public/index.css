@@ -56,6 +56,7 @@ body {
     padding-bottom: 5px;
 }
 .post-input {
+    position: relative;
     background-color: #e5e5ff;
     border: none;
     border-radius: 5px;
@@ -63,6 +64,17 @@ body {
     padding: 10px 16px;
     outline: none;
     box-sizing: border-box;
+    min-height: 50px
+}
+.post-input::after {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    content: 'Что у вас нового?';
+    opacity: 0.6;
+}
+.post-input:focus::after, .post-input.dirty::after {
+    display: none;
 }
 .post-create_button {
     color: #fff;

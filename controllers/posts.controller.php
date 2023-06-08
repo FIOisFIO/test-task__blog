@@ -18,11 +18,11 @@ $postsController->router->post(function () {
         public $userId;
     }
     global $postsRepo;
+    $_POST = json_decode(file_get_contents('php://input'), true);
     $post = new PostModel();
-
-    $post->text = $_REQUEST['text'];
-    $post->userName = $_REQUEST['userName'];
-    $post->userId = $_REQUEST['userId'];
+    $post->text = $_POST['text'];
+    $post->userName = $_POST['userName'];
+    $post->userId = $_POST['userId'];
 
     return $postsRepo->createRow($post);
 });
@@ -33,6 +33,5 @@ $postsController->router->put(function () {
     $post = $postsRepo->getByID($id);
     $post->likesCount = $post->likesCount + $likesCount;
     $postsRepo->updateById($post);
-
-    return $post;
+    return $postsRepo->getByID($id);
 });

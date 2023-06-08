@@ -10,6 +10,7 @@ let offset = 0;
 
 publicPost.addEventListener('click', addPost)
 contentWrapper.addEventListener('scroll', scrollControll)
+postInput.addEventListener('keyup', () => postInput.innerHTML ? postInput.classList.add('dirty') : postInput.classList.remove('dirty'))
 
  initPosts()
     
@@ -33,11 +34,15 @@ contentWrapper.addEventListener('scroll', scrollControll)
     }
 
     function addPost() {
-        if (postInput.value !=='') {
-            fetch(`index.php/posts?userName=${curUser.name}&userId=${curUser.id}&text=${postInput.value}`, {method: 'POST'}).then(res => res.json())
+        let postText = postInput.innerHTML;
+        if (postText !=='') {
+            fetch("index.php/posts", {method: 'POST', 
+            body: JSON.stringify({text: postText, userName: curUser.name, userId: curUser.id})})
+            .then(res => res.json())
             .then((data) => {
                 insertPostBefore(data) 
-                postInput.value = '';
+                postInput.innerHTML = '';
+                postInput.classList.remove('dirty')
             })
         }
       
